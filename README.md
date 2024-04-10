@@ -11,11 +11,11 @@ Clone project và push theo brach của bản thân tự tạo
 
 
 
-Khi clone ve để chạy đc:\\
+Khi clone ve để chạy đc:
 
-Gõ terminal các lệnh như sau:\\
+Gõ terminal các lệnh như sau:
 
-1. npm install (cài đặt npm)\\
+1. npm install (cài đặt npm)
 2. npm install firebase (cài firebase)\\
    Configure vs firebase tui đã tự kết nối rồi các bro chỉ việc gõ lệnh trên
    là oke thôi
