@@ -1,7 +1,7 @@
 import React from "react";
 
-function student() {
-  return <div>student test</div>;
+function Student() {
+  return <div>Student</div>;
 }
 
-export default student;
+export default Student;
