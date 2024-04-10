@@ -6,8 +6,8 @@
 
 
 
-Clone project và push theo brach của bản thân tự tạo
-(Xem video gửi trên Zalo)\\
+Clone project và push theo branch của bản thân tự tạo
+(Xem video gửi trên Zalo)
 
 
 
