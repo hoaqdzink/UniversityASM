@@ -1,12 +1,11 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Admin from "./admin/admin";
-import Home from "./Home/Home";
-import Login from "./Authen/Login";
-import Logout from "./Authen/Logout";
-import Identify from "./Authen/Identify";
 import { useState } from "react";
-import Student from "./Student/Student";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Admin from "./admin/admin";
+import Teacher from "./teacher/teacher";
+import Student from "./student/student";
+import Navigator from "./login/navigator";
+import Identify from "./login/Identify";
+import Login from "./login/Login";
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
   const [isStudent, SetisStudent] = useState(localStorage.getItem("Student"));
@@ -15,24 +14,12 @@ function App() {
   return (
     <div className="App">
       <Router>
+        {!isAuth && <Navigator></Navigator>}
+        {isAuth && isAdmin && <Admin></Admin>}
+        {isAuth && isStudent && <Student></Student>}
+        {isAuth && isTeacher && <Teacher></Teacher>}
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                isAdmin={isAdmin}
-                isStudent={isStudent}
-                isTeacher={isTeacher}
-                isAuth={isAuth}
-                SetisStudent={SetisStudent}
-                SetisAdmin={SetisAdmin}
-                SetisTeacher={SetisTeacher}
-                setIsAuth={setIsAuth}
-              />
-            }
-          />
           <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
-          <Route path="/logout" element={<Logout />} />
           <Route
             path="/identify"
             element={
@@ -43,8 +30,6 @@ function App() {
               />
             }
           />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/student" element={<Student />} />
         </Routes>
       </Router>
     </div>

@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 
 function Identify({ SetisStudent, SetisAdmin, SetisTeacher }) {
   let navigate = useNavigate();
@@ -38,13 +37,13 @@ function Identify({ SetisStudent, SetisAdmin, SetisTeacher }) {
         </div>
 
         <div
-          class="btn-group-vertical"
+          className="btn-group-vertical"
           role="group"
           aria-label="Vertical button group"
         >
           <button
             type="button"
-            class="btn btn-primary btn-lg"
+            claclassNamess="btn btn-primary btn-lg"
             onClick={Student}
             style={{ margin: "20px" }}
           >
@@ -52,7 +51,7 @@ function Identify({ SetisStudent, SetisAdmin, SetisTeacher }) {
           </button>
           <button
             type="button"
-            class="btn btn-primary btn-lg"
+            className="btn btn-primary btn-lg"
             onClick={Teacher}
             style={{ margin: "20px" }}
           >
@@ -60,7 +59,7 @@ function Identify({ SetisStudent, SetisAdmin, SetisTeacher }) {
           </button>
           <button
             type="button"
-            class="btn btn-primary btn-lg"
+            className="btn btn-primary btn-lg"
             onClick={Admin}
             style={{ margin: "20px" }}
           >

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import StudentPage from "./pages/student";
 import CoursePage from "./pages/course";
 import ManagersPage from "./pages/managers";
-import "./css/student.css";
-import Logout from "../logout/logout";
+import "./css/teacher.css";
 
-class student extends Component {
+class teacher extends Component {
   componentDidMount() {
     const list = document.querySelectorAll(".navigation li");
 
@@ -19,7 +19,6 @@ class student extends Component {
       // Thêm lớp 'hovered' và 'active' vào phần tử được click
       this.classList.add("hovered");
       this.classList.add("active");
-      if (this.getElementsByTagName("a").href == "#") Logout();
     }
 
     // Gắn sự kiện click vào mỗi phần tử trong danh sách
@@ -50,16 +49,25 @@ class student extends Component {
             </li>
 
             <li>
-              <Link to="/student/managers">
+              <Link to="/teacher/managers">
                 <span className="icon">
                   <i className="home icon"></i>
                 </span>
-                <span className="title">Student</span>
+                <span className="title">Teacher</span>
               </Link>
             </li>
 
             <li>
-              <Link to="/student/courses">
+              <Link to="/teacher/students">
+                <span className="icon">
+                  <i className="address card icon"></i>
+                </span>
+                <span className="title">Quản lý sinh viên</span>
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/teacher/courses">
                 <span className="icon">
                   <i className="sitemap icon"></i>
                 </span>
@@ -68,7 +76,7 @@ class student extends Component {
             </li>
 
             <li>
-              <a>
+              <a href="#">
                 <span className="icon">
                   <i className="sun outline icon"></i>
                 </span>
@@ -106,8 +114,9 @@ class student extends Component {
 
           <div className="details">
             <Routes>
-              <Route path="/student/managers" element={<ManagersPage />} />
-              <Route path="/student/courses" element={<CoursePage />} />
+              <Route path="/teacher/managers" element={<ManagersPage />} />
+              <Route path="/teacher/students" element={<StudentPage />} />
+              <Route path="/teacher/courses" element={<CoursePage />} />
             </Routes>
           </div>
         </div>
@@ -116,4 +125,4 @@ class student extends Component {
   }
 }
 
-export default student;
+export default teacher;
