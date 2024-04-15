@@ -33,36 +33,17 @@ function Identify({ SetisStudent, SetisAdmin, SetisTeacher }) {
         }}
       >
         <div style={{ padding: "20px" }}>
-          <h1>Choose you indentify</h1>
+          <h1>Choosing you indentify</h1>
         </div>
 
-        <div
-          className="btn-group-vertical"
-          role="group"
-          aria-label="Vertical button group"
-        >
-          <button
-            type="button"
-            claclassNamess="btn btn-primary btn-lg"
-            onClick={Student}
-            style={{ margin: "20px" }}
-          >
+        <div>
+          <button onClick={Student} style={{ margin: "20px" }}>
             Student
           </button>
-          <button
-            type="button"
-            className="btn btn-primary btn-lg"
-            onClick={Teacher}
-            style={{ margin: "20px" }}
-          >
+          <button onClick={Teacher} style={{ margin: "20px" }}>
             Teacher
           </button>
-          <button
-            type="button"
-            className="btn btn-primary btn-lg"
-            onClick={Admin}
-            style={{ margin: "20px" }}
-          >
+          <button onClick={Admin} style={{ margin: "20px" }}>
             Admin
           </button>
         </div>
