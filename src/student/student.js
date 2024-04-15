@@ -19,7 +19,6 @@ class student extends Component {
       // Thêm lớp 'hovered' và 'active' vào phần tử được click
       this.classList.add("hovered");
       this.classList.add("active");
-      if (this.getElementsByTagName("a").href == "#") Logout();
     }
 
     // Gắn sự kiện click vào mỗi phần tử trong danh sách
@@ -76,7 +75,7 @@ class student extends Component {
               </a>
             </li>
 
-            <li>
+            <li onClickCapture={() => Logout()}>
               <a href="#">
                 <span className="icon">
                   <i className="sign-out icon"></i>

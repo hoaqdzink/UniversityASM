@@ -4,6 +4,7 @@ import StudentPage from "./pages/student";
 import TeacherPage from "./pages/teacher";
 import CoursePage from "./pages/course";
 import ManagersPage from "./pages/managers";
+import Logout from "../logout/logout";
 import "./css/admin.css";
 
 class admin extends Component {
@@ -94,7 +95,7 @@ class admin extends Component {
               </a>
             </li>
 
-            <li>
+            <li onClickCapture={() => Logout()}>
               <a href="#">
                 <span className="icon">
                   <i className="sign-out icon"></i>

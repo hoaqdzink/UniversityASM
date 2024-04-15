@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import StudentPage from "./pages/student";
 import CoursePage from "./pages/course";
 import ManagersPage from "./pages/managers";
+import Logout from "../logout/logout";
 import "./css/teacher.css";
 
 class teacher extends Component {
@@ -84,7 +85,7 @@ class teacher extends Component {
               </a>
             </li>
 
-            <li>
+            <li onClickCapture={() => Logout()}>
               <a href="#">
                 <span className="icon">
                   <i className="sign-out icon"></i>
