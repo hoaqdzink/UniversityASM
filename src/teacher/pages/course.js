@@ -5,6 +5,8 @@ import {
   where,
   getDocs,
   getCountFromServer,
+  updateDoc,
+  doc,
 } from "firebase/firestore";
 import { auth, db } from "../../firebaseconfi";
 import { default as CourseModel } from "../../model/courses";
@@ -13,6 +15,15 @@ import "../css/course.css";
 
 function Course() {
   const [courses, setCourses] = useState([]);
+  async function updateDescription(courseID, description) {
+    const userRef = doc(db, "courses", courseID);
+
+    const res = await updateDoc(userRef, {
+      description: description,
+    });
+    alert("Updated successfully");
+  }
+
   useEffect(() => {
     async function fetchData() {
       await auth.authStateReady();
@@ -56,7 +67,15 @@ function Course() {
               </span>
             </span>
             <h2 className="title">{course.name}</h2>
-            <p className="info">{course.description}</p>
+            <div
+              className="info"
+              contentEditable
+              onInput={(e) => {
+                course.description = e.currentTarget.textContent;
+              }}
+            >
+              <p>{course.description}</p>
+            </div>
             <ul className="features">
               <li>
                 <span className="icon">
@@ -125,7 +144,12 @@ function Course() {
             </ul>
             <div className="button-container">
               {" "}
-              <button className="button">Cập nhật Mô tả</button>
+              <button
+                className="button"
+                onClick={() => updateDescription(course.id, course.description)}
+              >
+                Cập nhật
+              </button>
               <button className="button">Bảng điểm</button>
             </div>
           </div>

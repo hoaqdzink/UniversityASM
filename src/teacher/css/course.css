@@ -61,6 +61,7 @@
     border-radius: 12px;
     position: relative;
     overflow: hidden;
+    width: 260px;
   }
 
   .pricing {
@@ -137,7 +138,7 @@
     border-radius: 6px;
     color: var(--c-white);
     font-weight: 500;
-    font-size: 0.75rem;
+    font-size: 1rem;
     width: 100%;
     border: 0;
     padding: 1em;
