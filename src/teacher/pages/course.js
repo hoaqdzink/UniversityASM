@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   collection,
   query,
@@ -15,6 +16,7 @@ import "../css/course.css";
 
 function Course() {
   const [courses, setCourses] = useState([]);
+  const navigate = useNavigate();
   async function updateDescription(courseID, description) {
     const userRef = doc(db, "courses", courseID);
 
@@ -150,7 +152,12 @@ function Course() {
               >
                 Cập nhật
               </button>
-              <button className="button">Bảng điểm</button>
+              <button
+                className="button"
+                onClick={() => navigate(`/teacher/score/${course.id}`)}
+              >
+                Bảng điểm
+              </button>
             </div>
           </div>
         </article>
