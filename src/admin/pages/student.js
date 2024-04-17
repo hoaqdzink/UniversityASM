@@ -1,12 +1,11 @@
 import React from 'react'
 import '../css/stdeunt.css'
+
+import NavLink from '../components/navStudent'
 function student(){
   return (
-    <div>
-      <a href="admin/student">Thông tin xin viên</a> ||
-      <a href="admin/student/list">Danh sách sinh viên</a>
-      <hr />
-      <hr />
+    <div className='_student'>
+      <NavLink></NavLink>
       <h1 className='text_student'>Thông tin sinh viên</h1>
       <form action="" className='form_student'>
         <div className='groupInp'>
