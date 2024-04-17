@@ -15,7 +15,7 @@ function Information() {
   });
   return (
     <div id="contact">
-      <div class="content">
+      <div className="content">
         <div id="form">
           <form>
             <span>Họ tên</span>

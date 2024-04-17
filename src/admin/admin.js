@@ -97,7 +97,7 @@ class admin extends Component {
             </li>
 
             <li onClickCapture={() => Logout()}>
-              <a href="#">
+              <a href="/">
                 <span className="icon">
                   <i className="sign-out icon"></i>
                 </span>
