@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import CoursePage from "./pages/course";
+import ScorePage from "./pages/score";
 import Information from "./pages/information";
 import Logout from "../logout/logout";
 import "./css/teacher.css";
@@ -107,6 +108,7 @@ class teacher extends Component {
             <Routes>
               <Route path="/teacher/information" element={<Information />} />
               <Route path="/teacher/courses" element={<CoursePage />} />
+              <Route path="/teacher/score/:courseID" element={<ScorePage />} />
             </Routes>
           </div>
         </div>
