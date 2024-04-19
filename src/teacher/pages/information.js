@@ -13,6 +13,7 @@ function Information() {
       setTeacher(res.data());
     });
   });
+
   return (
     <div id="contact">
       <div className="content">
