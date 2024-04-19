@@ -13,10 +13,13 @@ function Information() {
       let uuid = auth.currentUser.uid;
       var res = await getDoc(doc(db, "Teacher", uuid));
       setTeacher(res.data());
+
     }
 
     fetchData();
   }, []);
+  
+
   return (
     <div id="contact">
       <div className="content">
