@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Routes, Route, Link, NavLink } from "react-router-dom";
-import StudentPage from "./pages/student";
+import StudentCreatePage from "./pages/studentCreate";
 import TeacherPage from "./pages/teacher";
 import CoursePage from "./pages/course";
 import ManagersPage from "./pages/managers";
@@ -117,7 +117,6 @@ class admin extends Component {
             <div className="search">
               <label>
                 <input type="text" placeholder="Search here" />
-                <i className="search icon"></i>
               </label>
             </div>
 
@@ -127,7 +126,7 @@ class admin extends Component {
           <div className="details">
             <Routes>
               <Route path="/admin/managers" element={<ManagersPage />} />
-              <Route path="/admin/students" element={<StudentPage />} />
+              <Route path="/admin/students" element={<StudentCreatePage />} />
               <Route path="/admin/teachers" element={<TeacherPage />} />
               <Route path="/admin/courses" element={<CoursePage />} />
               <Route path="/admin/students/list" element={<StudentList/>} />
