@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { auth, db } from "../../firebaseconfi";
 import { getDoc, doc } from "firebase/firestore";
 import Teacher from "../../model/teacher";
@@ -7,12 +7,16 @@ import "../css/information.css";
 
 function Information() {
   const [teacher, setTeacher] = useState(new Teacher());
-  auth.authStateReady().then(() => {
-    let uuid = auth.currentUser.uid;
-    getDoc(doc(db, "Teacher", uuid)).then((res) => {
+  useEffect(() => {
+    async function fetchData() {
+      await auth.authStateReady();
+      let uuid = auth.currentUser.uid;
+      var res = await getDoc(doc(db, "Teacher", uuid));
       setTeacher(res.data());
-    });
-  });
+    }
+
+    fetchData();
+  }, []);
   return (
     <div id="contact">
       <div className="content">
