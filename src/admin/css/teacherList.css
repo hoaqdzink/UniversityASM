@@ -1,0 +1,25 @@
+#_teacherList {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#_teacherList td, #_teacherList th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#_teacherList tr:nth-child(even){background-color: #f2f2f2;}
+
+#_teacherList tr:hover {background-color: #ddd;}
+
+#_teacherList th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #333534;
+    color: white;
+}
+#_teacherList ul {
+    list-style: none;
+}

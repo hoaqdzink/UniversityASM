@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Routes, Route, Link, NavLink } from "react-router-dom";
-import StudentCreatePage from "./pages/studentCreate";
-import TeacherPage from "./pages/teacher";
+import StudentPage from "./pages/Student";
+import TeacherPage from "./pages/Teacher";
 import CoursePage from "./pages/course";
 import ManagersPage from "./pages/managers";
 import Logout from "../logout/logout";
 import StudentList from "./pages/studentList";
+import TeacherListPage from "./pages/TeacherList";
 import "./css/admin.css";
 
 class admin extends Component {
@@ -126,10 +127,13 @@ class admin extends Component {
           <div className="details">
             <Routes>
               <Route path="/admin/managers" element={<ManagersPage />} />
-              <Route path="/admin/students" element={<StudentCreatePage />} />
+              <Route path="/admin/students" element={<StudentPage />} />
+              <Route path="/admin/students/edit/:key" element={<StudentPage />}/>
               <Route path="/admin/teachers" element={<TeacherPage />} />
               <Route path="/admin/courses" element={<CoursePage />} />
               <Route path="/admin/students/list" element={<StudentList/>} />
+              <Route path="/admin/teacher/list" element={<TeacherListPage/>} />
+              <Route path="/admin/teacher/edit/:key" element={<TeacherPage />}/>
             </Routes>
           </div>
         </div>

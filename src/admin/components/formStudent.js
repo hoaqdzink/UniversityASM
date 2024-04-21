@@ -4,7 +4,7 @@ function FormStudent({formData,setFormData}) {
   return (
     <div  className='form_student'>
         <div className='groupInp'>
-          <label htmlFor="fullname">Fullname: </label>
+          <label htmlFor="fullname">Họ và tên: </label>
           <input type="text" name='fullName' value={formData.fullName} onChange={(e) => setFormData({...formData, fullName: e.target.value})} />
         </div>
         <div className='groupInp'>
@@ -18,11 +18,12 @@ function FormStudent({formData,setFormData}) {
         </div>
         <div className='groupInp'>
           <label htmlFor="gender">Giới tính: </label> <br />
-          Nam <input type="radio" name="Gender" value={true} checked={formData.Gender === true} 
-          onChange={(e) => setFormData({ ...formData, Gender: e.target.value === true })}/>
-          Nữ <input type="radio" name="Gender" value={false} checked={formData.Gender === false}
-          onChange={(e) => setFormData({ ...formData, Gender: e.target.value === false })}/>
+          Nam <input type="radio" name="Gender" value="true" checked={formData.Gender === true} 
+            onChange={(e) => setFormData({ ...formData, Gender: e.target.value === 'true' })}/>
+          Nữ <input type="radio" name="Gender" value="false" checked={formData.Gender === false}
+            onChange={(e) => setFormData({ ...formData, Gender: e.target.value === 'true' })}/>
         </div>
+
         <div className='groupInp'>
           <label htmlFor="address">Địa chỉ: </label>
           <input type="text" name='address' value={formData.address} 
