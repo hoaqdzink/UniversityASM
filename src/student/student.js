@@ -4,6 +4,7 @@ import "./css/student.css";
 import Logout from "../logout/logout";
 import Infor from "./pages/Infor";
 import Score from "./pages/Score";
+import Course from "./pages/Course";
 
 class student extends Component {
   componentDidMount() {
@@ -58,7 +59,7 @@ class student extends Component {
             </li>
 
             <li>
-              <Link to="/student/score">
+              <Link to="/student/courses">
                 <span className="icon">
                   <i className="sitemap icon"></i>
                 </span>
@@ -106,6 +107,7 @@ class student extends Component {
           <div className="details">
             <Routes>
               <Route path="/student/infor" element={<Infor />} />
+              <Route path="/student/courses" element={<Course />} />
               <Route path="/student/score" element={<Score />} />
             </Routes>
           </div>
