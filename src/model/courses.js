@@ -8,6 +8,7 @@ class Course {
   semester = "";
   teacherID = "";
   numberStudent = 0;
+  score = 0;
 }
 
 export default Course;

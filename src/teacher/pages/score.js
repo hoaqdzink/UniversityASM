@@ -44,8 +44,16 @@ function Score() {
     fetchData();
   }, []);
 
-  async function updatePoint(pointID, lab, ass, mid, final, comment) {
-    const res = await handleUpdatePoint(pointID, lab, ass, mid, final, comment);
+  async function updatePoint(pointID, lab, ass, mid, final, score, comment) {
+    const res = await handleUpdatePoint(
+      pointID,
+      lab,
+      ass,
+      mid,
+      final,
+      score,
+      comment
+    );
     alert("Updated successfully");
   }
 
@@ -57,13 +65,22 @@ function Score() {
         student.ass,
         student.mid,
         student.final,
+        student.score,
         student.comment
       );
     }
     alert("Updated successfully");
   }
 
-  async function handleUpdatePoint(pointID, lab, ass, mid, final, comment) {
+  async function handleUpdatePoint(
+    pointID,
+    lab,
+    ass,
+    mid,
+    final,
+    score,
+    comment
+  ) {
     const userRef = doc(db, "point", pointID);
 
     const res = await updateDoc(userRef, {
@@ -71,6 +88,7 @@ function Score() {
       ass: ass,
       mid: mid,
       final: final,
+      score: score,
       comment: comment,
     });
   }
@@ -87,6 +105,7 @@ function Score() {
               <th>Điểm bài tập lớn</th>
               <th>Điểm thi giữa kỳ</th>
               <th>Điểm thi cuối kỳ</th>
+              <th>Điểm tổng kết</th>
               <th>Bình luận</th>
               <th></th>
             </tr>
@@ -131,6 +150,14 @@ function Score() {
                 <td
                   contentEditable
                   onInput={(e) => {
+                    student.score = e.currentTarget.textContent;
+                  }}
+                >
+                  {student.score}
+                </td>
+                <td
+                  contentEditable
+                  onInput={(e) => {
                     student.comment = e.currentTarget.textContent;
                   }}
                 >
@@ -145,6 +172,7 @@ function Score() {
                         student.ass,
                         student.mid,
                         student.final,
+                        student.score,
                         student.comment
                       );
                     }}

@@ -86,7 +86,6 @@ class teacher extends Component {
             </li>
           </ul>
         </div>
-
         {/* Main */}
         <div className="main">
           <div className="topbar">
