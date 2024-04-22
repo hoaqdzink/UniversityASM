@@ -76,6 +76,15 @@ class student extends Component {
               </a>
             </li>
 
+            <li>
+              <Link to="/student/score">
+                <span className="icon">
+                  <i className="chart bar icon"></i>
+                </span>
+                <span className="title">Điểm</span>
+              </Link>
+            </li>
+
             <li onClickCapture={() => Logout()}>
               <a href="/">
                 <span className="icon">
