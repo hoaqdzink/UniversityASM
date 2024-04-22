@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import NavLink from '../components/navTeacher';
-import '../css/teacherList.css'
+import '../css/tableList.css'
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
 import {db} from '../../firebaseconfi';
 function TeacherList() {
@@ -35,7 +35,7 @@ function TeacherList() {
     return (
         <div>
             <NavLink />
-            <table id="_teacherList">
+            <table id="_tableList">
                 <thead>
                     <tr>
                         <th>MSGV</th>

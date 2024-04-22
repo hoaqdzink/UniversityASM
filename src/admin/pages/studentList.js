@@ -1,5 +1,5 @@
  import React, { useEffect, useState } from 'react'
- import '../css/studentList.css'
+ import '../css/tableList.css'
  import {db} from '../../firebaseconfi';
  
  import NavLink from '../components/navStudent'
@@ -47,7 +47,7 @@
    return (
      <div>
         <NavLink></NavLink>
-        <table id="_studentList">
+        <table id="_tableList">
           <thead>
             <tr>
               <th>Mssv</th>

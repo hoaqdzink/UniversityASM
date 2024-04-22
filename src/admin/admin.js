@@ -7,6 +7,8 @@ import ManagersPage from "./pages/managers";
 import Logout from "../logout/logout";
 import StudentList from "./pages/studentList";
 import TeacherListPage from "./pages/TeacherList";
+import SemesterPage from "./pages/Semester";
+import SemesterListPage from "./pages/SemesterList";
 import "./css/admin.css";
 
 class admin extends Component {
@@ -89,12 +91,11 @@ class admin extends Component {
             </li>
 
             <li>
-              <a href="#">
+              <Link to="/admin/semester">
                 <span className="icon">
-                  <i className="sun outline icon"></i>
                 </span>
-                <span className="title">Cài đặt</span>
-              </a>
+                <span className="title">Tạo học kì</span>
+              </Link>
             </li>
 
             <li onClickCapture={() => Logout()}>
@@ -134,6 +135,9 @@ class admin extends Component {
               <Route path="/admin/students/list" element={<StudentList/>} />
               <Route path="/admin/teacher/list" element={<TeacherListPage/>} />
               <Route path="/admin/teacher/edit/:key" element={<TeacherPage />}/>
+              <Route path="/admin/semester" element={<SemesterPage/>}></Route>
+              <Route path="/admin/semester/list" element={<SemesterListPage/>}></Route>
+              <Route path="/admin/semester/edit/:key" element={<SemesterPage/>}></Route>
             </Routes>
           </div>
         </div>
