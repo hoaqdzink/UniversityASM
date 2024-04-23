@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { Routes, Route, Link, NavLink } from "react-router-dom";
-import StudentPage from "./pages/student";
-import TeacherPage from "./pages/teacher";
+import StudentPage from "./pages/Student";
+import TeacherPage from "./pages/Teacher";
 import CoursePage from "./pages/course";
 import ManagersPage from "./pages/managers";
 import Logout from "../logout/logout";
 import StudentList from "./pages/studentList";
+import TeacherListPage from "./pages/TeacherList";
+import SemesterPage from "./pages/Semester";
+import SemesterListPage from "./pages/SemesterList";
 import "./css/admin.css";
 
 class admin extends Component {
@@ -88,12 +91,11 @@ class admin extends Component {
             </li>
 
             <li>
-              <a href="#">
+              <Link to="/admin/semester">
                 <span className="icon">
-                  <i className="sun outline icon"></i>
                 </span>
-                <span className="title">Cài đặt</span>
-              </a>
+                <span className="title">Tạo học kì</span>
+              </Link>
             </li>
 
             <li onClickCapture={() => Logout()}>
@@ -117,7 +119,6 @@ class admin extends Component {
             <div className="search">
               <label>
                 <input type="text" placeholder="Search here" />
-                <i className="search icon"></i>
               </label>
             </div>
 
@@ -128,9 +129,15 @@ class admin extends Component {
             <Routes>
               <Route path="/admin/managers" element={<ManagersPage />} />
               <Route path="/admin/students" element={<StudentPage />} />
+              <Route path="/admin/students/edit/:key" element={<StudentPage />}/>
               <Route path="/admin/teachers" element={<TeacherPage />} />
               <Route path="/admin/courses" element={<CoursePage />} />
               <Route path="/admin/students/list" element={<StudentList/>} />
+              <Route path="/admin/teacher/list" element={<TeacherListPage/>} />
+              <Route path="/admin/teacher/edit/:key" element={<TeacherPage />}/>
+              <Route path="/admin/semester" element={<SemesterPage/>}></Route>
+              <Route path="/admin/semester/list" element={<SemesterListPage/>}></Route>
+              <Route path="/admin/semester/edit/:key" element={<SemesterPage/>}></Route>
             </Routes>
           </div>
         </div>

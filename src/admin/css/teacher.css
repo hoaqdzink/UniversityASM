@@ -1,0 +1,67 @@
+
+.teacherForm {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.teacherForm h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c2c2c;
+    letter-spacing: 0.05em;
+    text-shadow: 2px 2px 0px #d5d5d5, 4px 4px 0px rgba(0, 0, 0, 0.2);
+    padding: 20px 0;
+    margin-bottom: 20px;
+
+}
+
+.btn_Student button {
+    background-color: #555555;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin: 0 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 3px;
+}
+
+ul li button {
+    font-size: 0.3cm;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #888;
+    padding: 5px;
+}
+
+ul li button:hover {
+    color: #333;
+}
+#modifier {
+    margin: 10px;
+    padding: 7px;
+    font-size: 0.2cm;
+    color: #ccc;
+    background-color: #333;
+}
+.icon.plus{
+    width: 15px;
+    height: 9px;
+}

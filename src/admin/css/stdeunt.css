@@ -44,7 +44,8 @@ label {
 input[type="text"],
 input[type="date"],
 input[type="number"],
-input[type="radio"] {
+input[type="radio"],
+input[type="email"] {
     width: calc(100% - 20px);
     padding: 8px;
     border-radius: 4px;
@@ -71,19 +72,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
-
-button:nth-of-type(1) {
-    background-color: #555555;
-}
-
-button:nth-of-type(2) {
-    background-color: #555555;
-}
-
-button:nth-of-type(3) {
-    background-color: #555555;
-}
-
-button:nth-of-type(4) {
-    background-color: #555555;
+.btn_Student{
+    text-align: center;
+    margin-top: 20px;
 }
