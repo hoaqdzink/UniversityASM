@@ -11,7 +11,7 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "../../firebaseconfi";
 import { default as CourseModel } from "../../model/courses";
-import convertDateToString from "../../service/date";
+import date from "../../service/date";
 import "../css/course.css";
 
 function Course() {
@@ -116,7 +116,7 @@ function Course() {
                 <span>
                   Ngày bắt đầu:{" "}
                   <strong>
-                    {convertDateToString(course.StartCourseDate.toDate())}
+                    {date.convertDateToString(course.StartCourseDate.toDate())}
                   </strong>
                 </span>
               </li>
@@ -139,7 +139,7 @@ function Course() {
                   {" "}
                   Ngày tạo:{" "}
                   <strong>
-                    {convertDateToString(course.createdDate.toDate())}
+                    {date.convertDateToString(course.createdDate.toDate())}
                   </strong>
                 </span>
               </li>

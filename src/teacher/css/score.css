@@ -42,3 +42,37 @@ button {
     background-color: goldenrod;
   }
 }
+
+.panel {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.075);
+  border-radius: 0;
+  border: 0;
+  margin-bottom: 15px;
+}
+
+.panel > :last-child {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.panel > :first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.panel-body {
+  padding: 25px 20px;
+}
+
+.media-block .media-body {
+  display: block;
+  overflow: hidden;
+  width: auto;
+}
+
+.text-muted {
+  color: #acacac;
+}
+.text-sm {
+  font-size: 0.9em;
+}
