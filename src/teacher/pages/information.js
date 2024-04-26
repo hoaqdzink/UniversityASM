@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { auth, db } from "../../firebaseconfi";
 import { getDoc, doc } from "firebase/firestore";
 import Teacher from "../../model/teacher";
-import convertDateToString from "../../service/date";
+import date from "../../service/date";
 import "../css/information.css";
 
 function Information() {
@@ -13,12 +13,10 @@ function Information() {
       let uuid = auth.currentUser.uid;
       var res = await getDoc(doc(db, "Teacher", uuid));
       setTeacher(res.data());
-
     }
 
     fetchData();
   }, []);
-  
 
   return (
     <div id="contact">
@@ -32,7 +30,7 @@ function Information() {
             <span>Ngày Sinh</span>
             <input
               type="text"
-              value={convertDateToString(teacher.birthdate.toDate())}
+              value={date.convertDateToString(teacher.birthdate.toDate())}
               readOnly
             />
             <span>Email</span>
@@ -52,7 +50,7 @@ function Information() {
             <span>Ngày đăng ký</span>
             <input
               type="text"
-              value={convertDateToString(teacher.createdDate.toDate())}
+              value={date.convertDateToString(teacher.createdDate.toDate())}
               readOnly
             />
           </form>
