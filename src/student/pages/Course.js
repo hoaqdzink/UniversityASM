@@ -147,18 +147,27 @@ function Course() {
                 </span>
               </li>
             </ul>
-            <button
-              className="button"
-              disabled={course.registered}
-              onClick={(event) => {
-                registerCourse(course.id);
-                course.numberStudent++;
-                course.registered = true;
-                setCourses([...courses]);
-              }}
-            >
-              Đăng ký
-            </button>
+            <div className="button-container">
+              {" "}
+              <button
+                className="button"
+                onClick={() => navigate(`/student/courseDetail/${course.id}`)}
+              >
+                Chi tiết
+              </button>
+              <button
+                className="button"
+                disabled={course.registered}
+                onClick={(event) => {
+                  registerCourse(course.id);
+                  course.numberStudent++;
+                  course.registered = true;
+                  setCourses([...courses]);
+                }}
+              >
+                Đăng ký
+              </button>
+            </div>
           </div>
         </article>
       ))}

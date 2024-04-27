@@ -5,6 +5,7 @@ import Logout from "../logout/logout";
 import Infor from "./pages/Infor";
 import Score from "./pages/Score";
 import Course from "./pages/Course";
+import CourseDetail from "./pages/CourseDetail";
 
 class student extends Component {
   componentDidMount() {
@@ -109,6 +110,10 @@ class student extends Component {
               <Route path="/student/infor" element={<Infor />} />
               <Route path="/student/courses" element={<Course />} />
               <Route path="/student/score" element={<Score />} />
+              <Route
+                path="/student/courseDetail/:courseID"
+                element={<CourseDetail />}
+              />
             </Routes>
           </div>
         </div>

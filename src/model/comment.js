@@ -1,6 +1,6 @@
 import { Timestamp } from "firebase/firestore";
 class Comment {
-  studenID = "";
+  studentID = "";
   courseID = "";
   comment = "";
   createdDate = Timestamp.now();
