@@ -1,0 +1,67 @@
+/* CSS for the Identify component */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  border: 2px solid #ccc; /* Thêm khung bao quanh */
+  border-radius: 10px; /* Bo tròn các góc */
+  padding: 20px; /* Thêm khoảng cách bên trong */
+}
+
+.title {
+  margin-bottom: 20px; /* Thay vì padding, sử dụng margin bottom */
+  font-size: 24px; /* Cải thiện kích thước tiêu đề */
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column; /* Sắp xếp các lựa chọn dọc */
+  align-items: center; /* Canh giữa các lựa chọn */
+}
+
+.button {
+  margin: 10px 0; /* Đổi margin thành khoảng cách top và bottom */
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 200px; /* Đặt độ rộng cho các button */
+  text-align: center; /* Canh giữa nội dung của button */
+}
+
+/* Style for each button */
+.button.student {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.button.teacher {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.button.admin {
+  background-color: #dc3545;
+  color: #fff;
+}
+/* CSS for the Identify component */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .button-container .button {
+    margin: 10px 0; /* Đổi margin thành khoảng cách top và bottom */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #3f8304; /* Thêm khung bao quanh */
+    border-radius: 5px; /* Bo tròn các góc */
+    cursor: pointer;
+    width: 200px; /* Đặt độ rộng cho các button */
+    text-align: center; /* Canh giữa nội dung của button */
+  }
+  
