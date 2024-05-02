@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "./Identify.css"; // Liên kết file CSS vào component
 
 function Identify({ SetisStudent, SetisAdmin, SetisTeacher }) {
   let navigate = useNavigate();
@@ -21,29 +22,32 @@ function Identify({ SetisStudent, SetisAdmin, SetisTeacher }) {
     SetisAdmin(true);
     navigate("/login");
   };
+
   return (
-    <div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          heigt: "100vh",
-        }}
-      >
-        <div style={{ padding: "20px" }}>
-          <h1>Choosing you indentify</h1>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh", // Corrected "heigt" to "height"
+      }}
+    >
+      <div className="identify-container">
+        <div className="identify-header">
+          <div className="title-container"> {/* Sử dụng div inline để bọc chữ */}
+            <h1>Choosing your identity</h1>
+          </div>
         </div>
 
-        <div>
-          <button onClick={Student} style={{ margin: "20px" }}>
+        <div className="identify-options">
+          <button onClick={Student} className="identify-button student">
             Student
           </button>
-          <button onClick={Teacher} style={{ margin: "20px" }}>
+          <button onClick={Teacher} className="identify-button teacher">
             Teacher
           </button>
-          <button onClick={Admin} style={{ margin: "20px" }}>
+          <button onClick={Admin} className="identify-button admin">
             Admin
           </button>
         </div>
