@@ -40,11 +40,7 @@ function Information() {
             <span>Địa chỉ</span>
             <input type="text" value={teacher.address} readOnly />
             <span>Học Vấn</span>
-            <input
-              type="text"
-              value={teacher.degree.length > 0 && teacher.degree[0]}
-              readOnly
-            />
+            <input type="text" value={teacher.degree} readOnly />
             <span>Chuyên nghành</span>
             <input type="text" value={teacher.expertise} readOnly />
             <span>Ngày đăng ký</span>

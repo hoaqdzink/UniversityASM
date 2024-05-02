@@ -8,7 +8,7 @@ class Teacher {
   expertise = "";
   address = "";
   gender = true;
-  degree = [];
+  degree = "";
 }
 
 export default Teacher;
