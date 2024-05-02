@@ -18,7 +18,7 @@ function Login({ setIsAuth }) {
         navigate("/");
       })
       .catch((err) => {
-        alert("Đăng nhập no thành công!");
+        alert("Đăng nhập không thành công!");
       });
   };
 

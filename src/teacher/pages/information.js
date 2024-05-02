@@ -42,7 +42,7 @@ function Information() {
             <span>Học Vấn</span>
             <input
               type="text"
-              value={teacher.degree.length > 0 && teacher.degree[0]}
+              value={teacher.degree.length > 0 && teacher.degree}
               readOnly
             />
             <span>Chuyên nghành</span>
