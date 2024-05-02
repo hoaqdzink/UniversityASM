@@ -11,7 +11,7 @@ import {
 import { auth, db } from "../../firebaseconfi";
 import { default as CourseModel } from "../../model/courses";
 import Point from "../../model/point";
-import convertDateToString from "../../service/date";
+import date from "../../service/date";
 import "../css/course.css";
 
 function Course() {
@@ -119,7 +119,7 @@ function Course() {
                 <span>
                   Ngày bắt đầu:{" "}
                   <strong>
-                    {convertDateToString(course.StartCourseDate.toDate())}
+                    {date.convertDateToString(course.StartCourseDate.toDate())}
                   </strong>
                 </span>
               </li>
@@ -142,23 +142,32 @@ function Course() {
                   {" "}
                   Ngày tạo:{" "}
                   <strong>
-                    {convertDateToString(course.createdDate.toDate())}
+                    {date.convertDateToString(course.createdDate.toDate())}
                   </strong>
                 </span>
               </li>
             </ul>
-            <button
-              className="button"
-              disabled={course.registered}
-              onClick={(event) => {
-                registerCourse(course.id);
-                course.numberStudent++;
-                course.registered = true;
-                setCourses([...courses]);
-              }}
-            >
-              Đăng ký
-            </button>
+            <div className="button-container">
+              {" "}
+              <button
+                className="button"
+                onClick={() => navigate(`/student/courseDetail/${course.id}`)}
+              >
+                Chi tiết
+              </button>
+              <button
+                className="button"
+                disabled={course.registered}
+                onClick={(event) => {
+                  registerCourse(course.id);
+                  course.numberStudent++;
+                  course.registered = true;
+                  setCourses([...courses]);
+                }}
+              >
+                Đăng ký
+              </button>
+            </div>
           </div>
         </article>
       ))}

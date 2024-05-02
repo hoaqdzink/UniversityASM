@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Student from "../../model/student";
 import { auth, db } from "../../firebaseconfi";
 import { getDoc, doc } from "firebase/firestore";
-import convertDateToString from "../../service/date";
+import date from "../../service/date";
 
 function Infor() {
   const [stu, setStu] = useState(new Student());
@@ -36,7 +36,7 @@ function Infor() {
             <span>Ngày sinh</span>
             <input
               type="text"
-              value={convertDateToString(stu.birthday.toDate())}
+              value={date.convertDateToString(stu.birthday.toDate())}
               readOnly
             />
             <span>Email</span>
