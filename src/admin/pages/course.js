@@ -131,6 +131,7 @@ function Course() {
     <div>
       <NavCourse></NavCourse>
       <div className='form_Course'>
+      <h1 style={{ textAlign: 'center' }}>Quản lý khóa học</h1>
         <div className='groupInp'>
           <label htmlFor="name">Tên khóa học: </label>
           <input type="text" name='name' value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />

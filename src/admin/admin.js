@@ -10,6 +10,8 @@ import TeacherListPage from "./pages/TeacherList";
 import SemesterPage from "./pages/Semester";
 import SemesterListPage from "./pages/SemesterList";
 import CourseListPage from "./pages/ListCourse";
+import PointStudentPage from "./pages/PointStudent";
+import PointDetailStudentPage from "./pages/PointDetailStudent";
 import "./css/admin.css";
 
 class admin extends Component {
@@ -100,6 +102,15 @@ class admin extends Component {
               </Link>
             </li>
 
+            <li>
+              <Link to="/admin/point">
+                <span className="icon">
+                  <i className="file alternate outline icon"></i>
+                </span>
+                <span className="title">Xem điểm học tập</span>
+              </Link>
+            </li>
+
             <li onClickCapture={() => Logout()}>
               <a href="/">
                 <span className="icon">
@@ -142,6 +153,10 @@ class admin extends Component {
               <Route path="/admin/semester" element={<SemesterPage/>}></Route>
               <Route path="/admin/semester/list" element={<SemesterListPage/>}></Route>
               <Route path="/admin/semester/edit/:key" element={<SemesterPage/>}></Route>
+            
+              <Route path="/admin/point" element={<PointStudentPage/>}></Route>
+              <Route path="/admin/point/student/:studentID" element={<PointDetailStudentPage/>}></Route>
+            
             </Routes>
           </div>
         </div>
