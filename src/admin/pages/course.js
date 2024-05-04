@@ -3,6 +3,7 @@ import { db } from '../../firebaseconfi';
 import { addDoc, collection, getDocs } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 import NavCourse from '../components/navCourse';
+import '../css/Course.css'
 
 function Course() {
   const [formData, setFormData] = useState({

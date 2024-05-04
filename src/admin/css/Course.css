@@ -1,0 +1,45 @@
+.form_Course {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 0 20px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+select {
+    width: calc(100% - 20px);
+    margin: 0 0 15px 0;
+}
+
+.form_Course label {
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.btn_Course {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn_Course button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.btn_Course button:hover {
+    background-color: #0056b3;
+}
+#description {
+    width: calc(100% - 20px);
+}
