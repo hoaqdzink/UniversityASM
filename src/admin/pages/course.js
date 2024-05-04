@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../../firebaseconfi';
 import { addDoc, collection, getDocs } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
+import NavCourse from '../components/navCourse';
 
 function Course() {
   const [formData, setFormData] = useState({
@@ -66,7 +67,9 @@ function Course() {
 
   const { key } = useParams();
   return (
-    <div className='form_Course'>
+    <div>
+      <NavCourse></NavCourse>
+      <div className='form_Course'>
         <div className='groupInp'>
           <label htmlFor="name">Tên khóa học: </label>
           <input type="text" name='name' value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
@@ -93,15 +96,16 @@ function Course() {
         </div>
 
         <div className='btn_Course'>
-        {!key ? (
-          <button onClick={handleCreate}>Thêm</button>
-        ) : (
-          <>
-            <button onClick={handleUpdate}>Sửa</button>
-            <button onClick={handleDelete}>Xóa</button>
-          </>
-        )}
-        <button onClick={handleReset}>Reset</button>
+          {!key ? (
+            <button onClick={handleCreate}>Thêm</button>
+          ) : (
+            <>
+              <button onClick={handleUpdate}>Sửa</button>
+              <button onClick={handleDelete}>Xóa</button>
+            </>
+          )}
+          <button onClick={handleReset}>Reset</button>
+        </div>
       </div>
     </div>
   );

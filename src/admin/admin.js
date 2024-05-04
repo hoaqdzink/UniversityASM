@@ -9,6 +9,7 @@ import StudentList from "./pages/studentList";
 import TeacherListPage from "./pages/TeacherList";
 import SemesterPage from "./pages/Semester";
 import SemesterListPage from "./pages/SemesterList";
+import CourseListPage from "./pages/ListCourse";
 import "./css/admin.css";
 
 class admin extends Component {
@@ -132,6 +133,7 @@ class admin extends Component {
               <Route path="/admin/students/edit/:key" element={<StudentPage />}/>
               <Route path="/admin/teachers" element={<TeacherPage />} />
               <Route path="/admin/courses" element={<CoursePage />} />
+              <Route path="/admin/courses/list" element={<CourseListPage />} />
               <Route path="/admin/students/list" element={<StudentList/>} />
               <Route path="/admin/teacher/list" element={<TeacherListPage/>} />
               <Route path="/admin/teacher/edit/:key" element={<TeacherPage />}/>
