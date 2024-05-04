@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import StudentPage from "./pages/Student";
 import TeacherPage from "./pages/Teacher";
-import CoursePage from "./pages/course";
+import CoursePage from "./pages/Course";
 import ManagersPage from "./pages/managers";
 import Logout from "../logout/logout";
 import StudentList from "./pages/studentList";
