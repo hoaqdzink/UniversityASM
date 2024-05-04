@@ -3,6 +3,8 @@ import { db } from '../../firebaseconfi';
 import { addDoc, collection, deleteDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
 import NavSemester from '../components/navSemester';
 import { useParams } from 'react-router-dom';
+import '../css/Semester.css'
+
 function Semester() {
     const [semester, setSemester] = useState({
         idHK: '',
@@ -75,7 +77,7 @@ function Semester() {
   return (
     <div>
         <NavSemester></NavSemester>
-        <h1>MỞ HỌC KÌ</h1>
+        <h1 id='tieude'>MỞ HỌC KÌ</h1>
         <div className='semester'>
             <div className="input-group">
                 <label htmlFor="idHK">Mã học kì: </label>
