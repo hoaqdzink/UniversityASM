@@ -1,4 +1,4 @@
-import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, getDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '../../firebaseconfi';
 import React, { useEffect, useState } from 'react';
 import NavCourse from '../components/navCourse';
@@ -33,6 +33,20 @@ function ListCourse() {
     getData();
   }, []);
 
+  const handleDelete = async (key) =>{
+    try{
+        //doc được sử dụng để tạo một tham chiếu tới tài liệu cụ thể có ID là id trong collection "demo".
+        const deleteVal = doc(db, "courses", key)
+        await deleteDoc(deleteVal)
+        alert("Xóa thành công!")
+        window.location.reload()
+    }catch(err){
+        console.error(err)
+    }
+  }
+  const handleEdit = async (key) =>{
+    window.location.href = `/admin/courses/edit/${key}`;
+  }
   return (
     <div>
     <NavCourse></NavCourse>
@@ -55,7 +69,10 @@ function ListCourse() {
               <td>{course.createdDate ? course.createdDate.toDate().toLocaleDateString() : ''}</td>
               <td>{course.StartCourseDate ? course.StartCourseDate.toDate().toLocaleDateString() : ''}</td>
               <td>{course.teacherFullName}</td>
-              <td></td>
+              <td>
+                <button onClick={()=> handleDelete(course.key)}> <i className="trash icon"></i> </button> 
+                <button onClick={() => handleEdit(course.key)}><i className="edit icon"></i></button>
+              </td>
             </tr>
           ))}
         </tbody>

@@ -133,6 +133,7 @@ class admin extends Component {
               <Route path="/admin/students/edit/:key" element={<StudentPage />}/>
               <Route path="/admin/teachers" element={<TeacherPage />} />
               <Route path="/admin/courses" element={<CoursePage />} />
+              <Route path="/admin/courses/edit/:key" element={<CoursePage />} />
               <Route path="/admin/courses/list" element={<CourseListPage />} />
               <Route path="/admin/students/list" element={<StudentList/>} />
               <Route path="/admin/teacher/list" element={<TeacherListPage/>} />

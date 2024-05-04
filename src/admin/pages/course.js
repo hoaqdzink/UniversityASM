@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebaseconfi';
-import { addDoc, collection, getDocs } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 import NavCourse from '../components/navCourse';
 import '../css/Course.css'
@@ -16,7 +16,7 @@ function Course() {
   });
 
   const [teachers, setTeachers] = useState([]);
-
+  
   useEffect(() => {
     const fetchTeachers = async () => {
       const teacherCollection = collection(db, 'Teacher');
@@ -49,9 +49,27 @@ function Course() {
   }
 
   const handleUpdate = async() =>{
+    if (key) {
+      try {
+        await updateDoc(doc(db, "courses", key), formData);
+        alert("Cập nhật thông tin thành công!");
+        // Có thể thêm điều hướng sau khi cập nhật thành công
+      } catch (error) {
+        console.error("Lỗi khi cập nhật thông tin: ", error);
+      }
+    }
   }
 
   const handleDelete = async() =>{
+    if (key) {
+      try {
+        await deleteDoc(doc(db, "courses", key));
+        alert("Xóa thành công!");
+        window.location.href = "/admin/courses/list";
+      } catch (error) {
+        alert("Lỗi khi xóa môn học: ", error);
+      }
+    }
   }
 
   const handleReset = async() =>{
@@ -67,6 +85,48 @@ function Course() {
   }
 
   const { key } = useParams();
+  const [courseData, setCourseData] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (!key) return; // Kiểm tra xem key đã được truyền vào hay chưa
+        const coursesDocRef = doc(db, "courses", key);
+        const courseSnapshot = await getDoc(coursesDocRef);
+        if (courseSnapshot.exists()) {
+          const teacherData = courseSnapshot.data();
+          setCourseData(teacherData); // Sửa đổi tại đây
+        } else {
+          console.error("Giáo viên không tồn tại");
+        }
+      } catch (error) {
+        console.error("Lỗi khi lấy dữ liệu giáo viên: ", error);
+      }
+    };
+
+    fetchData();
+  }, [key]);
+
+  // Nếu có dữ liệu couser, điều chỉnh formData
+  useEffect(() => {
+    if (courseData) {
+      const {
+        StartCourseDate,
+        description,
+        name,
+        semester,
+        teacherID
+      } = courseData;
+  
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        name: name || "",
+        semester: semester || "",
+        teacherID: teacherID || "",
+        StartCourseDate: StartCourseDate ? StartCourseDate.toDate() : new Date(), // Chuyển từ timestamp sang Date object
+        description: description || "",
+      }));
+    }
+  }, [courseData]);
   return (
     <div>
       <NavCourse></NavCourse>

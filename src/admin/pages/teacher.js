@@ -161,7 +161,7 @@ function Teacher() {
         alert("Xóa thành công!");
         window.location.href = "/admin/teacher/list";
       } catch (error) {
-        alert("Lỗi khi xóa sinh viên: ", error);
+        alert("Lỗi khi xóa giáo viên: ", error);
       }
     }
   };
