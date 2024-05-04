@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import StudentPage from "./pages/Student";
 import TeacherPage from "./pages/Teacher";
-import CoursePage from "./pages/Course";
+import CoursePage from "./pages/course";
 import ManagersPage from "./pages/managers";
 import Logout from "../logout/logout";
 import StudentList from "./pages/studentList";
@@ -94,6 +94,7 @@ class admin extends Component {
             <li>
               <Link to="/admin/semester">
                 <span className="icon">
+                  <i className="calendar alternate icon"></i>
                 </span>
                 <span className="title">Tạo học kì</span>
               </Link>
