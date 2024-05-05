@@ -5,42 +5,41 @@ import {
   query,
   where,
   getDocs,
+  addDoc,
   getCountFromServer,
-  updateDoc,
-  doc,
 } from "firebase/firestore";
 import { auth, db } from "../../firebaseconfi";
 import { default as CourseModel } from "../../model/courses";
+import Point from "../../model/point";
 import date from "../../service/date";
 import "../css/course.css";
 
 function Course() {
   const [courses, setCourses] = useState([]);
   const navigate = useNavigate();
-  async function updateDescription(courseID, description) {
-    const userRef = doc(db, "courses", courseID);
-
-    const res = await updateDoc(userRef, {
-      description: description,
-    });
-    alert("Updated successfully");
-  }
 
   useEffect(() => {
     async function fetchData() {
       await auth.authStateReady();
       var uuid = auth.currentUser.uid;
-      const q = query(
-        collection(db, "courses"),
-        where("teacherID", "==", uuid)
-      );
+      var registerCourses = [];
+      const q = query(collection(db, "point"), where("studentID", "==", uuid));
       var docs = await getDocs(q);
+      docs.forEach((doc) => {
+        var data = doc.data();
+        registerCourses.push(data.courseID);
+      });
+
+      const c = collection(db, "courses");
+      var docs = await getDocs(c);
       var courseArr = [];
 
       docs.forEach((doc) => {
         var course = new CourseModel();
         course = doc.data();
         course.id = doc.id;
+        if (registerCourses.includes(doc.id)) course.registered = true;
+        else course.registered = false;
         courseArr.push(course);
       });
 
@@ -57,6 +56,16 @@ function Course() {
     fetchData();
   }, []);
 
+  async function registerCourse(courseID) {
+    await auth.authStateReady();
+    var uuid = auth.currentUser.uid;
+    var point = new Point();
+    point.studentID = uuid;
+    point.courseID = courseID;
+    await addDoc(collection(db, "point"), JSON.parse(JSON.stringify(point)));
+    alert("Đăng ký thành công");
+  }
+
   return (
     <div className="cards">
       {courses.map((course) => (
@@ -69,13 +78,7 @@ function Course() {
               </span>
             </span>
             <h2 className="title">{course.name}</h2>
-            <div
-              className="info"
-              contentEditable
-              onInput={(e) => {
-                course.description = e.currentTarget.textContent;
-              }}
-            >
+            <div className="info">
               <p>{course.description}</p>
             </div>
             <ul className="features">
@@ -148,15 +151,21 @@ function Course() {
               {" "}
               <button
                 className="button"
-                onClick={() => updateDescription(course.id, course.description)}
+                onClick={() => navigate(`/student/courseDetail/${course.id}`)}
               >
-                Cập nhật
+                Chi tiết
               </button>
               <button
                 className="button"
-                onClick={() => navigate(`/teacher/score/${course.id}`)}
+                disabled={course.registered}
+                onClick={(event) => {
+                  registerCourse(course.id);
+                  course.numberStudent++;
+                  course.registered = true;
+                  setCourses([...courses]);
+                }}
               >
-                Bảng điểm
+                Đăng ký
               </button>
             </div>
           </div>

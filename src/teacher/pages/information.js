@@ -1,21 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { auth, db } from "../../firebaseconfi";
 import { getDoc, doc } from "firebase/firestore";
 import Teacher from "../../model/teacher";
-import convertDateToString from "../../service/date";
+import date from "../../service/date";
 import "../css/information.css";
 
 function Information() {
   const [teacher, setTeacher] = useState(new Teacher());
-  auth.authStateReady().then(() => {
-    let uuid = auth.currentUser.uid;
-    getDoc(doc(db, "Teacher", uuid)).then((res) => {
+  useEffect(() => {
+    async function fetchData() {
+      await auth.authStateReady();
+      let uuid = auth.currentUser.uid;
+      var res = await getDoc(doc(db, "Teacher", uuid));
       setTeacher(res.data());
-    });
-  });
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <div id="contact">
-      <div class="content">
+      <div className="content">
         <div id="form">
           <form>
             <span>Họ tên</span>
@@ -25,7 +30,7 @@ function Information() {
             <span>Ngày Sinh</span>
             <input
               type="text"
-              value={convertDateToString(teacher.birthdate.toDate())}
+              value={date.convertDateToString(teacher.birthdate.toDate())}
               readOnly
             />
             <span>Email</span>
@@ -37,7 +42,7 @@ function Information() {
             <span>Học Vấn</span>
             <input
               type="text"
-              value={teacher.degree.length > 0 && teacher.degree[0]}
+              value={teacher.degree.length > 0 && teacher.degree}
               readOnly
             />
             <span>Chuyên nghành</span>
@@ -45,7 +50,7 @@ function Information() {
             <span>Ngày đăng ký</span>
             <input
               type="text"
-              value={convertDateToString(teacher.createdDate.toDate())}
+              value={date.convertDateToString(teacher.createdDate.toDate())}
               readOnly
             />
           </form>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import StudentPage from "./pages/student";
 import CoursePage from "./pages/course";
+import ScorePage from "./pages/score";
 import Information from "./pages/information";
 import Logout from "../logout/logout";
 import "./css/teacher.css";
@@ -59,15 +59,6 @@ class teacher extends Component {
             </li>
 
             <li>
-              <Link to="/teacher/students">
-                <span className="icon">
-                  <i className="address card icon"></i>
-                </span>
-                <span className="title">Quản lý sinh viên</span>
-              </Link>
-            </li>
-
-            <li>
               <Link to="/teacher/courses">
                 <span className="icon">
                   <i className="sitemap icon"></i>
@@ -95,7 +86,6 @@ class teacher extends Component {
             </li>
           </ul>
         </div>
-
         {/* Main */}
         <div className="main">
           <div className="topbar">
@@ -116,8 +106,8 @@ class teacher extends Component {
           <div className="details">
             <Routes>
               <Route path="/teacher/information" element={<Information />} />
-              <Route path="/teacher/students" element={<StudentPage />} />
               <Route path="/teacher/courses" element={<CoursePage />} />
+              <Route path="/teacher/score/:courseID" element={<ScorePage />} />
             </Routes>
           </div>
         </div>
