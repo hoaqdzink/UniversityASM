@@ -1,0 +1,65 @@
+.managers-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .square {
+    width: calc(25% - 20px);
+    height: 150px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    color: #fff; /* Màu chữ sáng */
+  }
+  .square h2 {
+    margin: 0; /* Loại bỏ margin mặc định của thẻ h2 */
+  }
+  
+  /* CSS cho các phần tử a bên trong square */
+  .square > a {
+    color: inherit; /* Kế thừa màu chữ từ thẻ cha */
+  }
+  .student-manager {
+    background-color: #c0392b; /* Màu nền đậm */
+  }
+  
+  .teacher-manager {
+    background-color: #2980b9; /* Màu nền đậm */
+  }
+  
+  .course-manager {
+    background-color: #d35400; /* Màu nền đậm */
+  }
+  
+  .semester-manager {
+    background-color: #27ae60; /* Màu nền đậm */
+  }
+  
+  .student-list {
+    background-color: #8e44ad; /* Màu nền đậm */
+  }
+  
+  .teacher-list {
+    background-color: #f1c40f; /* Màu nền đậm */
+  }
+  
+  .course-list {
+    background-color: #16a085; /* Màu nền đậm */
+  }
+  
+  .semester-list {
+    background-color: #2980b9; /* Màu nền đậm */
+  }
+  
+  .square:hover {
+    transform: scale(1.05);
+  }
+  .system-title {
+    text-align: center; /* Căn giữa tiêu đề */
+    margin-bottom: 50px; /* Khoảng cách dưới tiêu đề */
+    font-size: 50px;
+    margin-top: 50px;
+  }

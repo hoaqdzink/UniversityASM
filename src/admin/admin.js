@@ -1,10 +1,17 @@
 import React, { Component } from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import StudentPage from "./pages/student";
+import { Routes, Route, Link, NavLink } from "react-router-dom";
+import StudentPage from "./pages/Student";
 import TeacherPage from "./pages/teacher";
 import CoursePage from "./pages/course";
 import ManagersPage from "./pages/managers";
 import Logout from "../logout/logout";
+import StudentList from "./pages/studentList";
+import TeacherListPage from "./pages/TeacherList";
+import SemesterPage from "./pages/Semester";
+import SemesterListPage from "./pages/SemesterList";
+import CourseListPage from "./pages/ListCourse";
+import PointStudentPage from "./pages/PointStudent";
+import PointDetailStudentPage from "./pages/PointDetailStudent";
 import "./css/admin.css";
 
 class admin extends Component {
@@ -87,12 +94,21 @@ class admin extends Component {
             </li>
 
             <li>
-              <a href="#">
+              <Link to="/admin/semester">
                 <span className="icon">
-                  <i className="sun outline icon"></i>
+                  <i className="calendar alternate icon"></i>
                 </span>
-                <span className="title">Cài đặt</span>
-              </a>
+                <span className="title">Tạo học kì</span>
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/admin/point">
+                <span className="icon">
+                  <i className="file alternate outline icon"></i>
+                </span>
+                <span className="title">Xem điểm học tập</span>
+              </Link>
             </li>
 
             <li onClickCapture={() => Logout()}>
@@ -116,7 +132,6 @@ class admin extends Component {
             <div className="search">
               <label>
                 <input type="text" placeholder="Search here" />
-                <i className="search icon"></i>
               </label>
             </div>
 
@@ -127,8 +142,35 @@ class admin extends Component {
             <Routes>
               <Route path="/admin/managers" element={<ManagersPage />} />
               <Route path="/admin/students" element={<StudentPage />} />
+              <Route
+                path="/admin/students/edit/:key"
+                element={<StudentPage />}
+              />
               <Route path="/admin/teachers" element={<TeacherPage />} />
               <Route path="/admin/courses" element={<CoursePage />} />
+              <Route path="/admin/courses/edit/:key" element={<CoursePage />} />
+              <Route path="/admin/courses/list" element={<CourseListPage />} />
+              <Route path="/admin/students/list" element={<StudentList />} />
+              <Route path="/admin/teacher/list" element={<TeacherListPage />} />
+              <Route
+                path="/admin/teacher/edit/:key"
+                element={<TeacherPage />}
+              />
+              <Route path="/admin/semester" element={<SemesterPage />}></Route>
+              <Route
+                path="/admin/semester/list"
+                element={<SemesterListPage />}
+              ></Route>
+              <Route
+                path="/admin/semester/edit/:key"
+                element={<SemesterPage />}
+              ></Route>
+
+              <Route path="/admin/point" element={<PointStudentPage />}></Route>
+              <Route
+                path="/admin/point/student/:studentID"
+                element={<PointDetailStudentPage />}
+              ></Route>
             </Routes>
           </div>
         </div>
