@@ -28,7 +28,7 @@ class Navigator extends Component {
         <div className="navigation">
           <ul>
             <li>
-              <a href="#">
+              <a href="">
                 <span className="icon">
                   <i className="book icon"></i>
                 </span>
